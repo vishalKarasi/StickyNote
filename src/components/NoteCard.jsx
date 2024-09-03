@@ -64,7 +64,7 @@ export const NoteCard = ({ note }) => {
     try {
       await db.notes.update(note.$id, payload);
     } catch (error) {
-      toast.error(error);
+      toast.error(error.message || "An unexpected error occurred.");
     } finally {
       setSaving(false);
     }

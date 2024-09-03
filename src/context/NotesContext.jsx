@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { db } from "@appwrite/databases";
 import Spinner from "@assets/icons/Spinner";
+import toast from "react-hot-toast";
 
 export const NotesContext = createContext();
 
@@ -18,9 +19,13 @@ const NotesProvider = ({ children }) => {
   }, []);
 
   const init = async () => {
-    const response = await db.notes.list();
-    setNotes(response.documents);
-    setLoading(false);
+    try {
+      const response = await db.notes.list();
+      setNotes(response.documents);
+      setLoading(false);
+    } catch (error) {
+      toast.error(error.message || "An unexpected error occurred.");
+    }
   };
 
   const contextData = { notes, setNotes, selectedNote, setSelectedNote };
