@@ -4,7 +4,7 @@ Sticky note is a web application developed as an personal project.It includes fe
 
 ## Demo
 
-Check out the [Sticky Note Demo](https://stickynote.onrender.com) to see it in action.
+Check out the [Sticky Note Demo](https://stickynote-cdpp.onrender.com) to see it in action.
 
 ## Installation
 
